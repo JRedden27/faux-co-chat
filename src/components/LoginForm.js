@@ -49,7 +49,7 @@ const LoginForm = () => {
             borderRadius: "30px",
           }}
         />
-        {/* <h1 className="title">FauxCoChat</h1> */}
+        <h1 className="title">FauxCoChat</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
