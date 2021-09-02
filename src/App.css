@@ -15,7 +15,7 @@
 }
 
 .ce-active-chat-card {
-  background-color: #cabcdc !important;
+  background-color: #e7a53c !important;
   border: 4px solid #cabcdc !important;
   border-radius: 0px !important;
 }
@@ -304,4 +304,13 @@
   color: white;
   text-align: center;
   margin-top: 20px;
+}
+
+.logo-container {
+  height: 200px;
+  width: calc(100% - 36px);
+  text-align: center;
+  background-image: url("components/FauxCoChat4b.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }

@@ -61,6 +61,7 @@ const ChatFeed = (props) => {
 
   return (
     <div className="chat-feed">
+      <div className="logo-container"></div>
       <div className="chat-title-container">
         <div className="chat-title">{chat?.title}</div>
         <div className="chat-subtitle">
