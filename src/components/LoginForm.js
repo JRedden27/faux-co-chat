@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-import Logo from "../assets/FauxCoChat.png";
+import Logo from "../assets/FauxCoChat4b.png";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
