@@ -3,10 +3,11 @@ import axios from "axios";
 
 import Logo from "../assets/FauxCoChat4b.png";
 
-const LoginForm = () => {
+const LoginForm = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  //const [signUp, setSignUp] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,6 +35,11 @@ const LoginForm = () => {
     }
   };
 
+  const handleSignUp = () => {
+    props.setSignUp(true);
+    console.log(props);
+  };
+
   return (
     <div className="wrapper">
       <div className="form">
@@ -49,7 +55,7 @@ const LoginForm = () => {
             borderRadius: "30px",
           }}
         />
-        <h1 className="title">FauxCoChat</h1>
+        <h1 className="title">Log In</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -71,6 +77,24 @@ const LoginForm = () => {
             <button type="submit" className="button">
               <span>Start Chatting</span>
             </button>
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              fontWeight: "bolder",
+              marginTop: "15px",
+            }}
+          >
+            <span className="sign-up" style={{ color: "white" }}>
+              Not a member?{" "}
+              <span
+                className="sign-up-link"
+                style={{ color: "blue" }}
+                onClick={handleSignUp}
+              >
+                Sign Up Today
+              </span>
+            </span>
           </div>
           <h2 className="error">{error}</h2>
         </form>
