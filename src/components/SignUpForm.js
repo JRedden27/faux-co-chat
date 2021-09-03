@@ -21,7 +21,7 @@ const SignUpForm = (props) => {
       return;
     }
 
-    var data = {
+    const data = {
       username: username,
       secret: password,
       email: email,
@@ -29,7 +29,7 @@ const SignUpForm = (props) => {
       last_name: lastName,
     };
 
-    var config = {
+    const config = {
       method: "post",
       url: "https://api.chatengine.io/users/",
       headers: {
@@ -41,6 +41,7 @@ const SignUpForm = (props) => {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        props.setSignUp("");
       })
       .catch(function (error) {
         console.log(error);
