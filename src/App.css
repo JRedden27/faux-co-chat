@@ -233,6 +233,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: scroll;
 }
 
 .input {
@@ -244,6 +245,23 @@
   background-color: rgb(255, 255, 255);
   border: none;
   width: 90%;
+  display: block;
+  border-bottom: 0.3rem solid transparent;
+  transition: all 0.3s;
+  outline: none;
+  margin-bottom: 25px;
+}
+
+.input-signup {
+  color: #333;
+  font-size: 1.2rem;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  height: 10px;
   display: block;
   border-bottom: 0.3rem solid transparent;
   transition: all 0.3s;
