@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+// import { PictureOutlined } from "@ant-design/icons";
 
 import Logo from "../assets/FauxCoChat4b.png";
 
@@ -10,6 +11,7 @@ const SignUpForm = (props) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  // const [avatar, setAvatar] = useState(null);
   const [error, setError] = useState("");
 
   const formIsValid = () => password === passwordConfirmation;
@@ -27,6 +29,7 @@ const SignUpForm = (props) => {
       email: email,
       first_name: firstName,
       last_name: lastName,
+      // avatar: avatar,
     };
 
     const config = {
@@ -46,6 +49,7 @@ const SignUpForm = (props) => {
       .catch(function (error) {
         console.log(error);
       });
+    console.log(data);
   };
 
   const userTyping = (type, e) => {
@@ -74,6 +78,10 @@ const SignUpForm = (props) => {
         setLastName(e.target.value);
         break;
 
+      // case "avatar":
+      //   setAvatar(e.target.value);
+      //   break;
+
       default:
         break;
     }
@@ -96,10 +104,11 @@ const SignUpForm = (props) => {
             marginRight: "auto",
             marginLeft: "auto",
             marginBottom: "15px",
+            marginTop: "15px",
             borderRadius: "30px",
           }}
         />
-        <h1 className="title">FauxCoChat</h1>
+        <h1 className="title">Sign Up</h1>
         <form className="form" onSubmit={(e) => submitSignUp(e)}>
           <input
             type="username"
@@ -108,7 +117,7 @@ const SignUpForm = (props) => {
             onChange={(e) => userTyping("username", e)}
             autoFocus
             id="signup-username-input"
-            className="input"
+            className="input-signup"
             required
           />
           <input
@@ -116,7 +125,7 @@ const SignUpForm = (props) => {
             placeholder="Password"
             onChange={(e) => userTyping("password", e)}
             id="signup-password-input"
-            className="input"
+            className="input-signup"
             required
           />
           <input
@@ -124,30 +133,48 @@ const SignUpForm = (props) => {
             placeholder="Confirm Your Password"
             onChange={(e) => userTyping("passwordConfirmation", e)}
             id="signup-password-confirmation-input"
-            className="input"
+            className="input-signup"
             required
           />
-          {/* <input
+          <input
             type="email"
             placeholder="Email"
             onChange={(e) => userTyping("email", e)}
             id="signup-email-input"
-            className="input"
+            className="input-signup"
           />
           <input
-            type="firstName"
+            type="first_name"
             placeholder="First Name"
             onChange={(e) => userTyping("firstName", e)}
             id="signup-first-name-input"
-            className="input"
+            className="input-signup"
           />
           <input
-            type="lastName"
+            type="last_name"
             placeholder="Last Name"
             onChange={(e) => userTyping("lastName", e)}
             id="signup-last-name-input"
-            className="input"
-          /> */}
+            className="input-signup"
+          />
+
+          {/* <div>
+            <label htmlFor="upload-button">
+              <span className="image-button">
+                <PictureOutlined className="picture-icon" />
+              </span>
+            </label>
+            <input
+              type="file"
+              multiple={false}
+              id="upload-button"
+              style={{ display: "none" }}
+              onChange={(e) => userTyping("avatar", e)}
+              accept="img/x-png, img/gif, img/jpeg"
+              className="input-signup"
+            />
+          </div> */}
+
           <div align="center">
             <button type="submit" className="button">
               Sign Up

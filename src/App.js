@@ -1,20 +1,15 @@
 import { useState } from "react";
-import { ChatEngine } from "react-chat-engine";
+import { ChatEngine, ChatSettings } from "react-chat-engine";
 
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import ChatFeed from "./components/ChatFeed";
+import LogoutButton from "./components/LogoutButton";
 
 import "./App.css";
-// import { BoldOutlined } from "@ant-design/icons";
 
 const App = () => {
   const [signUp, setSignUp] = useState("");
-
-  const logOutHandler = () => {
-    localStorage.setItem("username", "");
-    window.location.reload(false);
-  };
 
   if (!localStorage.getItem("username") && signUp) {
     return <SignUpForm signUp={signUp} setSignUp={setSignUp} />;
@@ -30,23 +25,13 @@ const App = () => {
         userName={localStorage.getItem("username")}
         userSecret={localStorage.getItem("password")}
         renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+        renderChatSettings={(chatAppProps) => (
+          <div>
+            <ChatSettings height="100vh" {...chatAppProps} />
+            <LogoutButton />
+          </div>
+        )}
       />
-      <div style={{ contentAlign: "center" }}>
-        <button
-          type="submit"
-          onClick={logOutHandler}
-          style={{
-            width: "80px",
-            height: "50px",
-            background: "lightblue",
-            borderRadius: "15%",
-            fontWeight: "bolder",
-            margin: "10px",
-          }}
-        >
-          Log Out
-        </button>
-      </div>
     </div>
   );
 };
