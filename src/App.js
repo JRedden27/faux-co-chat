@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { ChatEngine } from "react-chat-engine";
+import { ChatEngine, IsTyping } from "react-chat-engine";
 
 import LoginForm from "./components/LoginForm";
 import SignUpForm from "./components/SignUpForm";
 import ChatFeed from "./components/ChatFeed";
+//import {IsTyping} from "./components/IsTyping";
+
 
 import "./App.css";
 // import { BoldOutlined } from "@ant-design/icons";
@@ -30,8 +32,10 @@ const App = () => {
         userName={localStorage.getItem("username")}
         userSecret={localStorage.getItem("password")}
         renderChatFeed={(chatAppProps) => <ChatFeed {...chatAppProps} />}
+        renderIsTyping={(typers) => <IsTyping />}
       />
       <div style={{ contentAlign: "center" }}>
+    
         <button
           type="submit"
           onClick={logOutHandler}

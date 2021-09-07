@@ -1,6 +1,7 @@
 import React from "react";
 
 const MyMessage = ({ message }) => {
+  console.log('message!!', message);
   if (message?.attachments?.length > 0) {
     return (
       <img
