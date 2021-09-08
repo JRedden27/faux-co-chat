@@ -43,18 +43,7 @@ const LoginForm = (props) => {
   return (
     <div className="wrapper">
       <div className="form">
-        <img
-          src={Logo}
-          alt="FauxCoChat Logo"
-          style={{
-            width: "300px",
-            display: "block",
-            marginRight: "auto",
-            marginLeft: "auto",
-            marginBottom: "15px",
-            borderRadius: "30px",
-          }}
-        />
+        <img src={Logo} alt="FauxCoChat Logo" className="logo" />
         <h1 className="title">Log In</h1>
         <form onSubmit={handleSubmit}>
           <input
