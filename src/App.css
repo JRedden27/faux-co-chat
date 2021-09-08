@@ -267,6 +267,7 @@
   transition: all 0.3s;
   outline: none;
   margin-bottom: 25px;
+  text-align: center;
 }
 
 .form {
@@ -331,4 +332,20 @@
   background-image: url("components/FauxCoChat4b.png");
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.noChats {
+  font-weight: 800;
+  margin-top: 10%;
+  margin-left: 10%;
+}
+
+.logo {
+  width: 300px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 15px;
+  margin-top: 10%;
+  border-radius: 30px;
 }

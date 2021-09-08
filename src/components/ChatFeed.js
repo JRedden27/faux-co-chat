@@ -57,7 +57,7 @@ const ChatFeed = (props) => {
     });
   };
 
-  if (!chat) return "Loading...";
+  if (!chat) return <div className="noChats">No Chats Available</div>;
 
   return (
     <div className="chat-feed">

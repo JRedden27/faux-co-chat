@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-// import { PictureOutlined } from "@ant-design/icons";
 
 import Logo from "../assets/FauxCoChat4b.png";
 
@@ -11,7 +10,7 @@ const SignUpForm = (props) => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  // const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState(null);
   const [error, setError] = useState("");
 
   const formIsValid = () => password === passwordConfirmation;
@@ -29,7 +28,7 @@ const SignUpForm = (props) => {
       email: email,
       first_name: firstName,
       last_name: lastName,
-      // avatar: avatar,
+      avatar: avatar,
     };
 
     const config = {
@@ -40,6 +39,7 @@ const SignUpForm = (props) => {
       },
       data: data,
     };
+    console.log(data.avatar);
 
     axios(config)
       .then(function (response) {
@@ -78,9 +78,10 @@ const SignUpForm = (props) => {
         setLastName(e.target.value);
         break;
 
-      // case "avatar":
-      //   setAvatar(e.target.value);
-      //   break;
+      case "avatar":
+        console.log(e.target.value);
+        setAvatar(e.target.value);
+        break;
 
       default:
         break;
@@ -95,19 +96,8 @@ const SignUpForm = (props) => {
   return (
     <div className="wrapper">
       <main>
-        <img
-          src={Logo}
-          alt="FauxCoChat Logo"
-          style={{
-            width: "300px",
-            display: "block",
-            marginRight: "auto",
-            marginLeft: "auto",
-            marginBottom: "15px",
-            marginTop: "15px",
-            borderRadius: "30px",
-          }}
-        />
+        <div style={{ padding: "90px" }}></div>
+        <img src={Logo} alt="FauxCoChat Logo" className="logo" />
         <h1 className="title">Sign Up</h1>
         <form className="form" onSubmit={(e) => submitSignUp(e)}>
           <input
@@ -158,22 +148,16 @@ const SignUpForm = (props) => {
             className="input-signup"
           />
 
-          {/* <div>
-            <label htmlFor="upload-button">
-              <span className="image-button">
-                <PictureOutlined className="picture-icon" />
-              </span>
-            </label>
+          <div>
             <input
               type="file"
               multiple={false}
               id="upload-button"
-              style={{ display: "none" }}
               onChange={(e) => userTyping("avatar", e)}
-              accept="img/x-png, img/gif, img/jpeg"
+              accept="img/png, img/gif, img/jpeg"
               className="input-signup"
             />
-          </div> */}
+          </div>
 
           <div align="center">
             <button type="submit" className="button">
@@ -189,7 +173,10 @@ const SignUpForm = (props) => {
             marginTop: "15px",
           }}
         >
-          <span className="sign-in" style={{ color: "white" }}>
+          <span
+            className="sign-in"
+            style={{ color: "white", paddingBottom: "15px" }}
+          >
             Already a member?{" "}
             <span
               className="sign-uin-link"
